@@ -8,7 +8,7 @@ import { Link, useParams } from "react-router-dom";
 
 const PostDetails = () => {
   const { id } = useParams();
-  const { data: post, isPending } = useGetPostById(id || ""); 
+  const { data: post, isPending } = useGetPostById(id);
   const { user } = useUserContext();
 
   const handleDeletePost = () => {};
@@ -16,15 +16,13 @@ const PostDetails = () => {
   return (
     <div className="post_details-container">
       {isPending ? (
-        <div className="flex-center w-full h-full">
-          <ArcadeLoader />
-        </div>
+        <ArcadeLoader />
       ) : (
         <div className="post_details-card">
           <img
             src={post?.imageUrl}
             alt="post"
-            className="post_details-img w-full h-full"
+            className="post_details-img"
           />
           <div className="post_details-info">
             <div className="flex-between w-full">

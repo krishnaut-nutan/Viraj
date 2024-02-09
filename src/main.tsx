@@ -5,6 +5,14 @@ import App from "./App";
 import AuthProvider from "./context/AuthContext";
 import { QueryProvider } from "./lib/react-query/QueryProvider";
 
+let docTitle = document.title;
+window.addEventListener("blur", () => {
+  document.title = "Come Back 😛";
+});
+window.addEventListener("focus", () => {
+  document.title = docTitle;
+});
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
     <QueryProvider>
