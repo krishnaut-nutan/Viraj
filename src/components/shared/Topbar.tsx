@@ -38,11 +38,14 @@ const Topbar = () => {
             <img src="/assets/icons/logout.svg" alt="logout" />
           </Button>
           <Link to={`/profile/${user.id}`} className="flex-center gap-2">
-            <img
-              src={user.imageUrl || "/assets/icons/profile-placeholder.svg"}
-              alt="profile"
-              className="h-8 w-8 rounded-full"
-            />
+            <div className="box1">
+              <img
+                src={user.imageUrl || "/assets/icons/profile-placeholder.svg"}
+                alt="profile"
+                className="h-8 w-8 rounded-full img1"
+              />
+              <div className="gradient1"></div>
+            </div>
             <div className="flex flex-col">
               <p className="body-bold">{user.name}</p>
               {/* <p className="tiny-medium  text-light-3">@{user.username}</p> */}
