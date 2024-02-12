@@ -1,21 +1,42 @@
-import React, { useEffect, useState } from "react";
-import ArcadeLoader from "@/components/shared/ArcadeLoader";
-import GridPostList from "@/components/shared/GridPostList";
-import SearchResult from "@/components/shared/SearchResult";
+import { useEffect, useState } from "react";
+import { useInView } from "react-intersection-observer";
+
 import { Input } from "@/components/ui/input";
 import useDebounce from "@/hooks/useDebounce";
+import ArcadeLoader from "@/components/shared/ArcadeLoader";
+import GridPostList from "@/components/shared/GridPostList";
 import {
   useGetPosts,
   useSearchPosts,
 } from "@/lib/react-query/queriesAndMutations";
-import { useInView } from "react-intersection-observer";
+
+export type SearchResultsProps = {
+  isSearchFetching: boolean;
+  searchedPosts: any;
+};
+
+const SearchResults = ({
+  isSearchFetching,
+  searchedPosts,
+}: SearchResultsProps) => {
+  if (isSearchFetching) {
+    return <ArcadeLoader />;
+  } else if (searchedPosts && searchedPosts.documents.length > 0) {
+    return <GridPostList posts={searchedPosts.documents} />;
+  } else {
+    return (
+      <p className="text-light-4 mt-10 text-center w-full text-2xl">
+        No results found
+      </p>
+    );
+  }
+};
 
 const Explore = () => {
   const { ref, inView } = useInView();
   const { data: posts, fetchNextPage, hasNextPage } = useGetPosts();
 
   const [searchValue, setSearchValue] = useState("");
-
   const debouncedValue = useDebounce(searchValue, 500);
 
   const { data: searchedPosts, isFetching: isSearchFetching } =
@@ -36,7 +57,7 @@ const Explore = () => {
   const shouldShowSearchResults = searchValue !== "";
   const shouldShowPost =
     !shouldShowSearchResults &&
-    posts.pages.every((item) => item.documents.length === 0);
+    posts.pages.every((item) => item?.documents.length === 0);
 
   return (
     <div className="explore-container">
@@ -54,7 +75,10 @@ const Explore = () => {
             placeholder="Search"
             className="explore-search"
             value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
+            onChange={(e) => {
+              const { value } = e.target;
+              setSearchValue(value);
+            }}
           />
         </div>
       </div>
@@ -75,7 +99,7 @@ const Explore = () => {
 
       <div className="flex flex-wrap gap-9 w-full max-w-5xl">
         {shouldShowSearchResults ? (
-          <SearchResult
+          <SearchResults
             isSearchFetching={isSearchFetching}
             searchedPosts={searchedPosts}
           />

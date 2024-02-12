@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 
 const EditPost = () => {
   const { id } = useParams();
-  const { data: post, isPending } = useGetPostById(id || "");
+  const { data: post, isPending } = useGetPostById(id);
 
   if (isPending)
     return (
@@ -27,7 +27,13 @@ const EditPost = () => {
           <h2 className="h3-bold md:h2-bold text-left w-full">Edit Post</h2>
         </div>
 
-        {isPending ? <></> : <PostForm action="Update" post={post} />}
+        {isPending ? (
+          <div className="flex-center w-full h-full">
+            <ArcadeLoader />
+          </div>
+        ) : (
+          <PostForm action="Update" post={post} />
+        )}
       </div>
     </div>
   );

@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { Models } from "appwrite";
 import { useUserContext } from "@/context/AuthContext";
@@ -28,11 +27,15 @@ const GridPostList = ({
               className="h-full w-full object-contain"
             />
           </Link>
+
           <div className="grid-post_user">
             {showUser && (
               <div className="flex flex-1 items-center justify-start gap-2">
                 <img
-                  src={post.creator.imageUrl}
+                  src={
+                    post.creator.imageUrl ||
+                    "/assets/icons/profile-placeholder.svg"
+                  }
                   alt="creator"
                   className="h-8 w-8 rounded-full"
                 />

@@ -1,3 +1,4 @@
+import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
@@ -14,11 +15,13 @@ window.addEventListener("focus", () => {
 });
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <BrowserRouter>
-    <QueryProvider>
-      <AuthProvider>
-        <App />
-      </AuthProvider>
-    </QueryProvider>
-  </BrowserRouter>
+  <React.StrictMode>
+    <BrowserRouter>
+      <QueryProvider>
+        <AuthProvider>
+          <App />
+        </AuthProvider>
+      </QueryProvider>
+    </BrowserRouter>
+  </React.StrictMode>
 );

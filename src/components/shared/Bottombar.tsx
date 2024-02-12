@@ -1,6 +1,5 @@
 import { bottombarLinks } from "@/constants";
-import React, { useEffect } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Bottombar = () => {
   const { pathname } = useLocation();
@@ -13,7 +12,7 @@ const Bottombar = () => {
         return (
           <Link
             to={link.route}
-            key={link.label}
+            key={`bottombar-${link.label}`}
             className={`bottombar-link group w-20 ${
               isActive && "bg-primary-500 rounded-[10px]"
             } flex-center flex-col gap-1 p-2 transition`}

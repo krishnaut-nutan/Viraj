@@ -26,11 +26,11 @@ const SigninForm = () => {
 
   const { mutateAsync: signInAccount } = useSignInAccount();
 
-  let arr = [13, 10, 3, 4, 5, 6, 7, 8, 9];
+  const arr = [13, 10, 3, 4, 5, 6, 7, 8, 9];
 
-  function FindMinMax(arr) {
-    let min = Math.min(...arr);
-    let max = Math.max(...arr);
+  function FindMinMax(arr: number[]) {
+    const min = Math.min(...arr);
+    const max = Math.max(...arr);
     return [min, max];
   }
 
