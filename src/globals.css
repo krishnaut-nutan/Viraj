@@ -307,11 +307,11 @@
     }
   }
   .a {
-    margin-left: 20px;
+    margin-left: 10px;
   }
   .a:hover {
     color: #c1ffc1;
-    margin-left: 10px;
+    margin-left: 2px;
     border-bottom: 2px solid #00ce00;
     border-radius: 15px;
     transform: scale(1) translate Y(0);

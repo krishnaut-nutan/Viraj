@@ -37,7 +37,7 @@ const PostDetails = () => {
 
   return (
     <div className="post_details-container">
-      <div className="hidden md:flex max-w-5xl w-full">
+      <div className="md:flex max-w-5xl w-full">
         <Button
           onClick={() => navigate(-1)}
           variant="ghost"
@@ -88,37 +88,7 @@ const PostDetails = () => {
                   </div>
                 </div>
               </Link>
-
-              <div className="flex-center gap-4">
-                <Link
-                  to={`/update-post/${post?.$id}`}
-                  className={`${user.id !== post?.creator.$id && "hidden"}`}
-                >
-                  <img
-                    src="/assets/icons/edit.svg"
-                    width={24}
-                    height={24}
-                    alt="edit"
-                  />
-                </Link>
-                <Button
-                  onClick={handleDeletePost}
-                  variant="ghost"
-                  className={`ghost_details-delete_btn ${
-                    user.id !== post?.creator.$id && "hidden"
-                  }`}
-                >
-                  <img
-                    src="/assets/icons/delete.svg"
-                    alt="delete"
-                    width={24}
-                    height={24}
-                  />
-                </Button>
-              </div>
             </div>
-
-            <hr className="border w-full border-dark-4/80" />
 
             <div className="flex flex-col flex-1 w-full small-medium lg:base-medium">
               <p className="">{post?.caption}</p>
@@ -130,8 +100,39 @@ const PostDetails = () => {
                 ))}
               </ul>
             </div>
+
             <div className="w-full">
               <PostStats post={post} userId={user.id} />
+            </div>
+
+            <hr className="border w-full border-dark-4/80" />
+
+            <div className="flex items-center justify-around w-full ">
+              <Link
+                to={`/update-post/${post?.$id}`}
+                className={`${user.id !== post?.creator.$id && "hidden"}`}
+              >
+                <img
+                  src="/assets/icons/edit.svg"
+                  width={30}
+                  height={30}
+                  alt="edit"
+                />
+              </Link>
+              <Button
+                onClick={handleDeletePost}
+                variant="ghost"
+                className={`post_details-delete_btn ${
+                  user.id !== post?.creator.$id && "hidden"
+                }`}
+              >
+                <img
+                  src="/assets/icons/delete.svg"
+                  alt="delete"
+                  width={30}
+                  height={30}
+                />
+              </Button>
             </div>
           </div>
         </div>
