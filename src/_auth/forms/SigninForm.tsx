@@ -26,14 +26,6 @@ const SigninForm = () => {
 
   const { mutateAsync: signInAccount } = useSignInAccount();
 
-  const arr = [13, 10, 3, 4, 5, 6, 7, 8, 9];
-
-  function FindMinMax(arr: number[]) {
-    const min = Math.min(...arr);
-    const max = Math.max(...arr);
-    return [min, max];
-  }
-
   // 1. Define your form.
   const form = useForm<z.infer<typeof SigninValidation>>({
     resolver: zodResolver(SigninValidation),
@@ -73,10 +65,10 @@ const SigninForm = () => {
           <div className="cube">
             <div className="top"></div>
             <div>
-              <span style={{ "--i": 0 }}></span>
-              <span style={{ "--i": 1 }}></span>
-              <span style={{ "--i": 2 }}></span>
-              <span style={{ "--i": 3 }}></span>
+              <span style={{ "--i": 0 } as React.CSSProperties}></span>
+              <span style={{ "--i": 1 } as React.CSSProperties}></span>
+              <span style={{ "--i": 2 } as React.CSSProperties}></span>
+              <span style={{ "--i": 3 } as React.CSSProperties}></span>
             </div>
           </div>
           <h1 className="a">Viraj_Gram</h1>
@@ -92,7 +84,7 @@ const SigninForm = () => {
         </p>
 
         <form
-          onSubmit={form.handleSubmit(onSubmit, console.log(FindMinMax(arr)))}
+          onSubmit={form.handleSubmit(onSubmit)}
           className="flex flex-col gap-5 w-full mt-4"
         >
           <FormField

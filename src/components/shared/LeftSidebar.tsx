@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "../ui/button";
 import { INITIAL_USER, useUserContext } from "@/context/AuthContext";
@@ -31,10 +31,10 @@ const LeftSidebar = () => {
           <div className="cube">
             <div className="top"></div>
             <div>
-              <span style={{ "--i": 0 }}></span>
-              <span style={{ "--i": 1 }}></span>
-              <span style={{ "--i": 2 }}></span>
-              <span style={{ "--i": 3 }}></span>
+              <span style={{ "--i": 0 } as React.CSSProperties}></span>
+              <span style={{ "--i": 1 } as React.CSSProperties}></span>
+              <span style={{ "--i": 2 } as React.CSSProperties}></span>
+              <span style={{ "--i": 3 } as React.CSSProperties}></span>
             </div>
           </div>
           <h1 className="a">Viraj_Gram</h1>

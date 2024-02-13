@@ -25,13 +25,12 @@ import { useUserContext } from "@/context/AuthContext";
 const SignupForm = () => {
   const { toast } = useToast();
   const navigate = useNavigate();
-  const { checkAuthUser, isLoading: isUserLoading } = useUserContext();
+  const { checkAuthUser } = useUserContext();
 
   const { mutateAsync: createUserAccount, isPending: isCreatingAccount } =
     useCreateUserAccount();
 
-  const { mutateAsync: signInAccount, isPending: isSigningIn } =
-    useSignInAccount();
+  const { mutateAsync: signInAccount } = useSignInAccount();
 
   // 1. Define your form.
   const form = useForm<z.infer<typeof SignupValidation>>({
@@ -73,15 +72,6 @@ const SignupForm = () => {
     }
   }
 
-  const generateOtp = (length) => {
-    let otp = "";
-    for (let i = 0; i < length; i++) {
-      otp += Math.floor(Math.random() * 10).toString();
-    }
-    console.log(otp);
-    return generateOtp;
-  };
-
   return (
     <Form {...form}>
       <div className="sm:w-420 flex-center flex-col">
@@ -89,10 +79,10 @@ const SignupForm = () => {
           <div className="cube">
             <div className="top"></div>
             <div>
-              <span style={{ "--i": 0 }}></span>
-              <span style={{ "--i": 1 }}></span>
-              <span style={{ "--i": 2 }}></span>
-              <span style={{ "--i": 3 }}></span>
+              <span style={{ "--i": 0 } as React.CSSProperties}></span>
+              <span style={{ "--i": 1 } as React.CSSProperties}></span>
+              <span style={{ "--i": 2 } as React.CSSProperties}></span>
+              <span style={{ "--i": 3 } as React.CSSProperties}></span>
             </div>
           </div>
           <h1 className="a">Viraj_Gram</h1>
@@ -108,7 +98,7 @@ const SignupForm = () => {
         </p>
 
         <form
-          onSubmit={form.handleSubmit(onSubmit, generateOtp(6))}
+          onSubmit={form.handleSubmit(onSubmit)}
           className="flex flex-col gap-5 w-full mt-4"
         >
           <FormField
