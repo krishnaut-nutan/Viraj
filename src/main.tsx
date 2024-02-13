@@ -6,7 +6,7 @@ import App from "./App";
 import AuthProvider from "./context/AuthContext";
 import { QueryProvider } from "./lib/react-query/QueryProvider";
 
-let docTitle = document.title;
+const docTitle = document.title;
 window.addEventListener("blur", () => {
   document.title = "Come Back 😛";
 });
