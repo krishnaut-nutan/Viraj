@@ -46,20 +46,29 @@ const LeftSidebar = () => {
           </div>
         ) : (
           <Link to={`/profile/${user.id}`} className="profiler">
-            <div className="flex gap-3 items-center">
-              <div className="box">
-                <img
-                  src={user.imageUrl || "/assets/icons/profile-placeholder.svg"}
-                  alt="profile"
-                  className="h-14 w-14 rounded-full absolute img"
-                />
-                <div className="gradient"></div>
-              </div>
-              <div className="flex flex-col">
-                <p className="body-bold">{user.name}</p>
-                <p className="small-regular text-light-3">@{user.username}</p>
-              </div>
-            </div>
+            <li className="icon facebook">
+              <span className="tooltip">Profile</span>
+              <span className="profiler1">
+                <div className="flex gap-3 items-center">
+                  <div className="box">
+                    <img
+                      src={
+                        user.imageUrl || "/assets/icons/profile-placeholder.svg"
+                      }
+                      alt="profile"
+                      className="h-14 w-14 rounded-full absolute img"
+                    />
+                    <div className="gradient"></div>
+                  </div>
+                  <div className="flex flex-col">
+                    <p className="body-bold">{user.name}</p>
+                    <p className="small-regular text-light-3">
+                      @{user.username}
+                    </p>
+                  </div>
+                </div>
+              </span>
+            </li>
           </Link>
         )}
         <ul className="flex flex-col gap-6">
