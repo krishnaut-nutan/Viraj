@@ -717,27 +717,22 @@
     transform-origin: center top;
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   }
-
   .pyramid-loader .wrapper .side1 {
     transform: rotateZ(-30deg) rotateY(90deg);
     background: conic-gradient(#2bdeac, #f028fd, #d8cce6, #2f2585);
   }
-
   .pyramid-loader .wrapper .side2 {
     transform: rotateZ(30deg) rotateY(90deg);
     background: conic-gradient(#2f2585, #d8cce6, #f028fd, #2bdeac);
   }
-
   .pyramid-loader .wrapper .side3 {
     transform: rotateX(30deg);
     background: conic-gradient(#2f2585, #d8cce6, #f028fd, #2bdeac);
   }
-
   .pyramid-loader .wrapper .side4 {
     transform: rotateX(-30deg);
     background: conic-gradient(#2bdeac, #f028fd, #d8cce6, #2f2585);
   }
-
   .pyramid-loader .wrapper .shadow {
     width: 60px;
     height: 60px;
