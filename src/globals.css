@@ -631,4 +631,14 @@
   img1 {
     z-index: 1;
   }
+
+  .profiler:hover {
+    border-radius: 31px; /* Sets the border radius of the element */
+    background: #2c38e7; /* Sets the background color */
+    box-shadow:           /* Applies the box shadow effect */ inset 15px 15px
+        40px #888ee8,
+      /* Inset shadow with offset, blur radius, and color */ inset -15px -15px
+        40px #0011f9;
+    transition: all 1s;
+  }
 }
