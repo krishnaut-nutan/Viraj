@@ -29,7 +29,10 @@ export const ProfileValidation = z.object({
     .string()
     .min(2, { message: "Name must be at least 2 characters." }),
   email: z.string().email(),
-  bio: z.string(),
+  bio: z
+    .string()
+    .min(10, { message: "Minimum 10 characters." })
+    .max(50, { message: "Maximum 50 characters." }),
 });
 
 // ============================================================
@@ -45,8 +48,8 @@ export const PostValidation = z.object({
   location: z
     .string()
     .min(1, { message: "This field is required" })
-    .max(1000, { message: "Maximum 1000 characters." }),
-  tags: z.string().max(20),
+    .max(100, { message: "Maximum 100 characters." }),
+  tags: z.string().max(20, { message: "Maximum 20 characters." }),
 });
 
 export const PostComeents = z.object({
