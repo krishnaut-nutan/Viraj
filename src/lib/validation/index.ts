@@ -46,7 +46,7 @@ export const PostValidation = z.object({
     .string()
     .min(1, { message: "This field is required" })
     .max(1000, { message: "Maximum 1000 characters." }),
-  tags: z.string(),
+  tags: z.string().max(20),
 });
 
 export const PostComeents = z.object({
