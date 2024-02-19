@@ -28,7 +28,7 @@ const GridPostList = ({
             />
           </Link>
 
-          <div className="grid-post_user">
+          <div className="grid-post_user z-20">
             {showUser && (
               <div className="flex flex-1 items-center justify-start gap-2">
                 <img

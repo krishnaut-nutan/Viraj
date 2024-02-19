@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { Button } from "../ui/button";
@@ -37,7 +37,7 @@ const Topbar = () => {
               <span style={{ "--i": 3 } as React.CSSProperties}></span>
             </div>
           </div>
-          <h1 className=" a text-xs sm:text-lg">Viraj_Gram</h1>
+          <h1 className="a">Viraj_Gram</h1>
         </Link>
 
         <div className="flex gap-4">
